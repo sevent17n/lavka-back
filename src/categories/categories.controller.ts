@@ -31,14 +31,14 @@ export default class CategoriesController {
     return this.categoriesService.createCategory(file, data);
   }
 
-  @Put('update/:id')
+  @Put('update')
   @Auth(true)
-  async update(@Param('id') id: number, @Body() dto: CategoriesUpdateDto) {
-    return this.categoriesService.addProductToCategory(Number(id), dto);
+  async update(@Body() dto: CategoriesUpdateDto) {
+    return this.categoriesService.addProductToCategory(dto);
   }
 
-  @Get('byId/:id')
-  async getAllById(@Param('id') id: number) {
+  @Post('byId')
+  async getAllById(@Body('id') id?: number) {
     return this.categoriesService.getAllInCat(Number(id));
   }
 

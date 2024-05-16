@@ -33,7 +33,7 @@ export default class ProductsController {
   }
 
   @Get('search')
-  async getAll(@Query('searchTerm') searchTerm?: string) {
+  async search(@Query('searchTerm') searchTerm?: string) {
     return this.productsService.searchProduct(searchTerm);
   }
 

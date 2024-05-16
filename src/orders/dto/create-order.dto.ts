@@ -4,6 +4,5 @@ export default class CreateOrderDto {
   @IsNumber()
   userId: number;
 
-  @IsNumber()
   productsId: number[];
 }

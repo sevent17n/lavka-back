@@ -12,9 +12,9 @@ export default class OrdersController {
     return this.orderService.createOrder(dto);
   }
 
-  @Get(':id')
-  async getAllById(@Param('id') id: number) {
-    return this.orderService.byId(Number(id));
+  @Get()
+  async getAllById() {
+    return this.orderService.getAll();
   }
 
   @Put('change-status')

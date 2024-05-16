@@ -25,18 +25,18 @@ export default class CategoriesService {
     });
   }
 
-  public async addProductToCategory(id: number, dto: CategoriesUpdateDto) {
+  public async addProductToCategory(dto: CategoriesUpdateDto) {
     return this.prismaService.category_products.create({
       data: {
         productsId: dto.productId,
-        categoryId: id,
+        categoryId: dto.categoryId,
       },
     });
   }
 
   public async getAllInCat(id: number) {
     return this.prismaService.category.findUnique({
-      where: { id: id },
+      where: { id },
       include: {
         category_products: {
           include: {

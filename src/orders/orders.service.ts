@@ -55,19 +55,8 @@ export default class OrdersService {
     return { order, productsInOrder };
   }
 
-  public async byId(id: number) {
-    return this.prismaService.orders.findUnique({
-      where: {
-        id: id,
-      },
-      include: {
-        Orders_Data: {
-          include: {
-            product: true,
-          },
-        },
-      },
-    });
+  public async getAll() {
+    return this.prismaService.orders.findMany();
   }
 
   public async updateStatus(dto: UpdateDto) {
